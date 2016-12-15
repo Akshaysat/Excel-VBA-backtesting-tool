@@ -12,7 +12,7 @@ Function YahooFinanceRequest(symbol As String, dd As Date) As String
     d = Day(dd)
     y = Year(dd)
     
-    url = "http://ichart.finance.yahoo.com/table.csv?s={symb}&a={month}&b={day}&c={year}&d={month}&e={day}&f={year}&g=d&ignore=.csv"
+    url = "http://ichart.finance.yahoo.com/table.csv?s={symb}&a={month}&b={day}&c=1990&d={month}&e={day}&f={year}&g=d&ignore=.csv"
 
     url = Replace(url, "{symb}", symbol)
     url = Replace(url, "{month}", CStr(m))
