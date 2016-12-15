@@ -1,18 +1,19 @@
 Option Explicit
 ' call yahoo finance to get the data
-' tokenize the results
-' use the get function to get desired value
 
+' gets all available data on a particular symbol
+Function YahooFinanceRequest(symbol As String) As String
 
-Function YahooFinanceRequest(symbol As String, dd As Date) As String
-' returns a csv file in string format for one day
     Dim url As String
     Dim m As Integer, d As Integer, y As Integer
+    Dim dd As Date
+    dd = Now
+    
     m = Month(dd) - 1
     d = Day(dd)
     y = Year(dd)
     
-    url = "http://ichart.finance.yahoo.com/table.csv?s={symb}&a={month}&b={day}&c=1990&d={month}&e={day}&f={year}&g=d&ignore=.csv"
+    url = "http://ichart.finance.yahoo.com/table.csv?s={symb}&a=1&b=1&c=1900&d={month}&e={day}&f={year}&g=d&ignore=.csv"
 
     url = Replace(url, "{symb}", symbol)
     url = Replace(url, "{month}", CStr(m))
@@ -21,6 +22,7 @@ Function YahooFinanceRequest(symbol As String, dd As Date) As String
     
     
     YahooFinanceRequest = HttpRequest(url)
+
 
 End Function
  
@@ -32,16 +34,4 @@ Function HttpRequest(url As String) As String
     Http.send
 
     HttpRequest = Http.responsetext
-End Function
-
-Function GetOpen(s() As String) As String
-    GetOpen = s(7)
-End Function
-
-Function GetClose(s() As String) As String
-    GetClose = s(10)
-End Function
-
-Function Tokenize(queryResult As String) As String()
-    Tokenize = Split(queryResult, ",")
 End Function
