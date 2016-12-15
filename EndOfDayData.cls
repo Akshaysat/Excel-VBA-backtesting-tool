@@ -1,4 +1,4 @@
- 
+' a class to hold a line of yahoofinance end of day data
 Private pDateOfData As Date
 Private pOpen As Double
 Private pHigh As Double
