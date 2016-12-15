@@ -9,6 +9,7 @@ Function YahooFinanceRequest(symbol As String) As String
     Dim dd As Date
     dd = Now
     
+ ' month is 0 based
     m = Month(dd) - 1
     d = Day(dd)
     y = Year(dd)
