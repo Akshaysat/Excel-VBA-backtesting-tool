@@ -1,4 +1,5 @@
-Function LoadCsvFileAsArray(fileName As String, folderName As String) As Variant
+' take saved csv files and loads into a collection of class EndOfDayData
+Function LoadCsvFile(fileName As String, folderName As String) As Variant
 
 
     Dim MyData As String, strData() As String, TmpAr() As String
