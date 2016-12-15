@@ -3,7 +3,7 @@ Option Explicit
 
 ' gets all available data on a particular symbol
 Function YahooFinanceRequest(symbol As String) As String
-
+ 
     Dim url As String
     Dim m As Integer, d As Integer, y As Integer
     Dim dd As Date
@@ -20,18 +20,10 @@ Function YahooFinanceRequest(symbol As String) As String
     url = Replace(url, "{day}", CStr(d))
     url = Replace(url, "{year}", CStr(y))
     
-    
-    YahooFinanceRequest = HttpRequest(url)
-
-
-End Function
- 
-
-Function HttpRequest(url As String) As String
     Dim Http As Object
     Set Http = CreateObject("WinHttp.WinHttpRequest.5.1")
     Http.Open "GET", url, False
     Http.send
+    YahooFinanceRequest = Http.responsetext
 
-    HttpRequest = Http.responsetext
 End Function
