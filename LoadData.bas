@@ -1,6 +1,6 @@
 ' take saved csv files and loads into a collection of class EndOfDayData
 ' the collection can then be used to test strategies
-Function LoadCsvFile(fileName As String, folderName As String) As Variant
+Function LoadCsvFile(fileName As String, folderName As String) As Collection
 
 
     Dim MyData As String, strData() As String, TmpAr() As String
