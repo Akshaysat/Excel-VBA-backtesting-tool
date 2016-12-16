@@ -1,4 +1,4 @@
-' a class to hold a line of yahoofinance end of day data
+ 
 Private pDateOfData As Date
 Private pOpen As Double
 Private pHigh As Double
@@ -52,3 +52,20 @@ Public Property Let Volume(Value As Long)
     pVolume = Value
 End Property
 
+Public Sub InitiateProperties( _
+    DateOfData As Date, _
+    OpenPrice As Double, _
+    High As Double, _
+    Low As Double, _
+    ClosePrice As Double, _
+    Volume As Long, _
+    SplitAdjustedPrice As Double _
+)
+    pDateOfData = DateOfData
+    pOpen = OpenPrice
+    pHigh = High
+    pLow = Low
+    pClose = ClosePrice
+    pVolume = Volume
+    pSplitAdjustedPrice = SplitAdjustedPrice
+End Sub
